@@ -11,7 +11,7 @@ quoteProps: preserve
 arrowParens: always
 
 overrides:
-  - files: ['package.json', '*.yml', '.prettierrc']
+  - files: ['package.json', 'package-lock.json', '*.yml', '.prettierrc']
     options:
       useTabs: false
       tabWidth: 2
