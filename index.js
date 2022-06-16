@@ -77,14 +77,6 @@ module.exports = {
 		'react/prop-types': 'off',
 		'space-in-parens': enabled,
 		'spaced-comment': [enabled, 'always', { markers: ['/'] }],
-		'use-isnan': enabled,
-
-		// DEFAULTS: remove these
-		'@typescript-eslint/no-empty-interface': enabled,
-		'@typescript-eslint/no-redeclare': enabled,
-		'@typescript-eslint/ban-ts-comment': enabled,
-		'@typescript-eslint/ban-types': enabled,
-		'@typescript-eslint/no-var-requires': enabled,
-		'prefer-const': enabled
+		'use-isnan': enabled
 	}
 }
