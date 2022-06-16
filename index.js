@@ -1,3 +1,6 @@
+// See https://github.com/eslint/eslint/issues/3458#issuecomment-1148245615
+require('@rushstack/eslint-patch/modern-module-resolution')
+
 const enabled = 'error' // Used to set error level across rules
 
 module.exports = {
