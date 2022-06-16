@@ -7,8 +7,9 @@
     "format": "prettier --write . --ignore-path .gitignore",
     "format:check": "prettier --check . --ignore-path .gitignore",
     "lint": "eslint *.js -c index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "release": "semantic-release --config ./release.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.0.0",
     "@commitlint/config-conventional": "^16.0.0",
+    "husky": "^8.0.1",
     "prettier": "^2.6.2",
     "semantic-release": "^18.0.1"
   },
