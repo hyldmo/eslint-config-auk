@@ -4,15 +4,12 @@ on:
     branches: ['master']
 
 jobs:
-  publish:
-    name: Publish on NPM
+  test:
+    name: Lint and test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
 
@@ -21,6 +18,18 @@ jobs:
 
       - run: npm run format:check
       - run: npm run lint
+
+  publish-npm:
+    needs: test
+    name: Publish on NPM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+
+      - run: npm ci
 
       - name: Release
         env:
