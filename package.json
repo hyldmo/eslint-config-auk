@@ -1,0 +1,50 @@
+{
+  "name": "eslint-config-auk",
+  "version": "0.0.0-development",
+  "description": "Opinionated ESLint config used by Auk's React projects",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write . --ignore-path .gitignore",
+    "format:check": "prettier --check . --ignore-path .gitignore",
+    "lint": "eslint *.js -c index.js",
+    "release": "semantic-release --config ./release.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyldmo/eslint-config-auk.git"
+  },
+  "keywords": [
+    "ESLint",
+    "TypeScript",
+    "JavaScript",
+    "React"
+  ],
+  "author": "hyldmo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hyldmo/eslint-config-auk/issues"
+  },
+  "homepage": "https://github.com/hyldmo/eslint-config-auk#readme",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.17.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.0.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "prettier": "^2.6.2",
+    "semantic-release": "^18.0.1"
+  },
+  "commitlint": {
+    "parserPreset": "conventional-changelog-conventionalcommits",
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}

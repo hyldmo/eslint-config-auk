@@ -1,0 +1,11 @@
+{
+	"recommendations": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"rohit-gohri.format-code-action",
+		"oderwat.indent-rainbow",
+		"christian-kohler.npm-intellisense",
+		"redhat.vscode-yaml",
+		"vscode-icons-team.vscode-icons"
+	]
+}

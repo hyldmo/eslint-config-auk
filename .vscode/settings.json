@@ -1,0 +1,15 @@
+{
+	"files.associations": {
+		".prettierrc": "yaml",
+		".env": "ini"
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": false,
+	"editor.codeActionsOnSave": [
+		"source.organizeImports", // Follow https://github.com/microsoft/TypeScript/issues/43141 for update on not sorting
+		"source.formatDocument", // Requires rohit-gohri.format-code-action
+		"source.fixAll.eslint"
+	],
+	"workbench.iconTheme": "vscode-icons",
+	"prettier.ignorePath": ".gitignore"
+}
