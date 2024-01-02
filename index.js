@@ -3,7 +3,6 @@
 
 const enabled = 'error' // Used to set error level across rules
 
-// eslint-disable-next-line import/no-commonjs
 module.exports = {
 	env: {
 		browser: true,
@@ -17,9 +16,10 @@ module.exports = {
 		},
 		ecmaVersion: 'latest'
 	},
+	plugins: ['github'],
 	extends: [
 		'eslint:recommended',
-		'plugin:github/recommended',
+		'plugin:github/browser',
 		'plugin:github/typescript',
 		'plugin:github/react',
 		'plugin:react/recommended',
@@ -44,6 +44,11 @@ module.exports = {
 		'react/prop-types': 'off',
 		'react/self-closing-comp': enabled,
 
+		'import/extensions': 'off', // Handled by typescript
+		'import/no-nodejs-modules': 'off', // Makes too many assumptions
+		'import/no-unresolved': 'off', // Handled by typescript
+
+		'github/array-foreach': enabled,
 		'arrow-body-style': [enabled, 'as-needed'],
 		'arrow-parens': [enabled, 'as-needed'],
 		'constructor-super': enabled,
