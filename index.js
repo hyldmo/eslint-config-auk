@@ -18,6 +18,9 @@ module.exports = {
 	},
 	extends: [
 		'eslint:recommended',
+		'plugin:github/recommended',
+		'plugin:github/typescript',
+		'plugin:github/react',
 		'plugin:react/recommended',
 		'plugin:react-hooks/recommended',
 		'plugin:@typescript-eslint/eslint-recommended',
