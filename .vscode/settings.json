@@ -11,5 +11,8 @@
 		"source.fixAll.eslint"
 	],
 	"workbench.iconTheme": "vscode-icons",
-	"prettier.ignorePath": ".gitignore"
+	"prettier.ignorePath": ".gitignore",
+	"eslint.options": {
+		"overrideConfigFile": "index.js"
+	}
 }
