@@ -28,14 +28,13 @@
   },
   "homepage": "https://github.com/hyldmo/eslint-config-auk#readme",
   "dependencies": {
-    "@rushstack/eslint-patch": "^1.6.1",
-    "@typescript-eslint/eslint-plugin": "^6.17.0",
-    "@typescript-eslint/parser": "^6.17.0",
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@typescript-eslint/parser": "^8.19.1",
     "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-github": "^4.10.1",
+    "eslint-plugin-github": "^5.1.4",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint-plugin-react-hooks": "^5.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
@@ -45,7 +44,7 @@
     "semantic-release": "^19.0.3"
   },
   "peerDependencies": {
-    "eslint": "^8.56.0"
+    "eslint": "^8.57.0"
   },
   "optionalDependencies": {
     "eslint-config-prettier": "^9.1.0",
