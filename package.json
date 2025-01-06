@@ -34,7 +34,6 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react": "^7.37.3",
     "eslint-plugin-react-hooks": "^5.1.0",
-    "eslint-plugin-jsx-a11y": "~6.10.2",
     "typescript-eslint": "^8.19.1",
     "eslint": "^9.15.0"
   },
@@ -49,11 +48,16 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2"
   },
+  "overrides": {
+    "eslint-plugin-jsx-a11y": "^6.10.2"
+  },
+  "resolutions": {
+    "eslint-plugin-jsx-a11y": "^6.10.2"
+  },
   "commitlint": {
     "parserPreset": "conventional-changelog-conventionalcommits",
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "packageManager": "yarn@3.6.4+sha512.e70835d4d6d62c07be76b3c1529cb640c7443f0fe434ef4b6478a5a399218cbaf1511b396b3c56eb03bc86424cff2320f6167ad2fde273aa0df6e60b7754029f"
+  }
 }
