@@ -1,5 +1,5 @@
-// eslint-disable-next-line no-undef, importPlugin/no-commonjs
-module.exports = {
+/** @type {import('semantic-release').Options} */
+export default {
 	plugins: [
 		[
 			'@semantic-release/commit-analyzer',

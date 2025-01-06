@@ -13,6 +13,6 @@
 	"workbench.iconTheme": "vscode-icons",
 	"prettier.ignorePath": ".gitignore",
 	"eslint.options": {
-		"overrideConfigFile": "index.mjs"
+		"overrideConfigFile": "index.js"
 	}
 }

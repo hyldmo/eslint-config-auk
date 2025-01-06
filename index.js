@@ -1,12 +1,11 @@
-const enabled = 'error'
-
-// Import the plugins
 import eslint from '@eslint/js'
-import typescriptParser from '@typescript-eslint/parser'
 import github from 'eslint-plugin-github'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
+// eslint-disable-next-line importPlugin/no-unresolved -- TODO: figure out why it's complaining here
 import typescript from 'typescript-eslint'
+
+const enabled = 'error'
 
 const baseConfigs = [
 	eslint.configs.recommended,
@@ -31,7 +30,6 @@ const config = {
 	languageOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
-		parser: typescriptParser,
 		parserOptions: {
 			ecmaFeatures: {
 				jsx: true
@@ -44,7 +42,7 @@ const config = {
 		}
 	},
 	plugins: {
-		// @ts-ignore
+		// @ts-expect-error react-hooks is out of date, see
 		'react-hooks': reactHooks
 	},
 	rules: {
