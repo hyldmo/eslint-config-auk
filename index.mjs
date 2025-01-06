@@ -1,29 +1,52 @@
-const enabled = 'error' // Used to set error level across rules
+const enabled = 'error'
 
-module.exports = {
-	env: {
-		browser: true,
-		node: true
-	},
-	parser: '@typescript-eslint/parser',
-	parserOptions: {
-		sourceType: 'module',
-		ecmaFeatures: {
-			jsx: true
+// Import the plugins
+import eslint from '@eslint/js'
+import typescriptParser from '@typescript-eslint/parser'
+import github from 'eslint-plugin-github'
+import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
+import typescript from 'typescript-eslint'
+
+const baseConfigs = [
+	eslint.configs.recommended,
+	github.getFlatConfigs().recommended,
+	github.getFlatConfigs().react,
+	...github.getFlatConfigs().typescript,
+	...typescript.configs.recommended,
+	typescript.configs.eslintRecommended,
+	react.configs.flat?.recommended,
+	react.configs.flat?.['jsx-runtime'],
+	{
+		plugins: {
+			'react-hooks': reactHooks
 		},
-		ecmaVersion: 'latest'
+		rules: reactHooks.configs.recommended.rules
+	}
+]
+
+/** @type {import('eslint').Linter.Config} */
+const config = {
+	files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
+	languageOptions: {
+		ecmaVersion: 'latest',
+		sourceType: 'module',
+		parser: typescriptParser,
+		parserOptions: {
+			ecmaFeatures: {
+				jsx: true
+			}
+		}
 	},
-	plugins: ['github'],
-	extends: [
-		'eslint:recommended',
-		'plugin:github/browser',
-		'plugin:github/typescript',
-		'plugin:github/react',
-		'plugin:react/recommended',
-		'plugin:react-hooks/recommended',
-		'plugin:@typescript-eslint/eslint-recommended',
-		'plugin:@typescript-eslint/recommended'
-	],
+	settings: {
+		react: {
+			version: 'detect'
+		}
+	},
+	plugins: {
+		// @ts-ignore
+		'react-hooks': reactHooks
+	},
 	rules: {
 		'@typescript-eslint/array-type': [enabled, { default: 'array-simple' }],
 		'@typescript-eslint/consistent-type-definitions': [enabled, 'interface'], // See https://github.com/microsoft/TypeScript/wiki/Performance#preferring-interfaces-over-intersections
@@ -93,3 +116,5 @@ module.exports = {
 		'use-isnan': enabled
 	}
 }
+
+export default [...baseConfigs, config]

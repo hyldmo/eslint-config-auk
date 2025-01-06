@@ -2,11 +2,12 @@
   "name": "eslint-config-auk",
   "version": "0.0.0-development",
   "description": "Opinionated ESLint config used by Auk's React projects",
-  "main": "index.js",
+  "main": "index.mjs",
+  "type": "module",
   "scripts": {
     "format": "prettier --write . --ignore-path .gitignore",
     "format:check": "prettier --check . --ignore-path .gitignore",
-    "lint": "eslint *.js -c index.js",
+    "lint": "eslint *.js -c index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "semantic-release --config ./release.config.js",
     "prepare": "husky install"
@@ -28,13 +29,13 @@
   },
   "homepage": "https://github.com/hyldmo/eslint-config-auk#readme",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.19.1",
-    "@typescript-eslint/parser": "^8.19.1",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-github": "^5.1.4",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^5.1.0"
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react": "^7.37.3",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "typescript-eslint": "^8.19.1",
+    "eslint": "^9.15.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
@@ -43,12 +44,12 @@
     "prettier": "^3.1.1",
     "semantic-release": "^19.0.3"
   },
-  "peerDependencies": {
-    "eslint": "^8.57.0"
-  },
   "optionalDependencies": {
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2"
+  },
+  "resolutions": {
+    "eslint-plugin-jsx-a11y": "^6.10.2"
   },
   "commitlint": {
     "parserPreset": "conventional-changelog-conventionalcommits",
