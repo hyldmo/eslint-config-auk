@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef, importPlugin/no-commonjs
 module.exports = {
 	plugins: [
 		[
