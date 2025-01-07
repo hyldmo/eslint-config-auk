@@ -62,9 +62,9 @@ const config = {
 		'react/prop-types': 'off',
 		'react/self-closing-comp': enabled,
 
-		'import/extensions': 'off', // Handled by typescript
-		'import/no-nodejs-modules': 'off', // Makes too many assumptions
-		'import/no-unresolved': 'off', // Handled by typescript
+		'importPlugin/extensions': 'off', // Handled by typescript
+		'importPlugin/no-nodejs-modules': 'off', // Makes too many assumptions
+		'importPlugin/no-unresolved': 'off', // Handled by typescript
 
 		'github/array-foreach': enabled,
 		'arrow-body-style': [enabled, 'as-needed'],
