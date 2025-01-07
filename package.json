@@ -49,10 +49,10 @@
     "eslint-plugin-prettier": "^5.1.2"
   },
   "overrides": {
-    "eslint-plugin-jsx-a11y": "^6.10.2"
+    "eslint-plugin-jsx-a11y": "~6.10.2"
   },
   "resolutions": {
-    "eslint-plugin-jsx-a11y": "^6.10.2"
+    "eslint-plugin-jsx-a11y": "~6.10.2"
   },
   "commitlint": {
     "parserPreset": "conventional-changelog-conventionalcommits",
