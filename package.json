@@ -30,7 +30,7 @@
   "homepage": "https://github.com/hyldmo/eslint-config-auk#readme",
   "dependencies": {
     "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-github": "^5.1.4",
+    "eslint-plugin-github": "^5.1.5",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react": "^7.37.3",
     "eslint-plugin-react-hooks": "^5.1.0",
@@ -47,12 +47,6 @@
   "optionalDependencies": {
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2"
-  },
-  "overrides": {
-    "eslint-plugin-jsx-a11y": "~6.10.2"
-  },
-  "resolutions": {
-    "eslint-plugin-jsx-a11y": "~6.10.2"
   },
   "commitlint": {
     "parserPreset": "conventional-changelog-conventionalcommits",
