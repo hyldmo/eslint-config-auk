@@ -2,7 +2,7 @@ import eslint from '@eslint/js'
 import github from 'eslint-plugin-github'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
-// eslint-disable-next-line importPlugin/no-unresolved -- TODO: figure out why it's complaining here
+
 import typescript from 'typescript-eslint'
 
 const enabled = 'error'
@@ -14,6 +14,7 @@ const baseConfigs = [
 	...github.getFlatConfigs().typescript,
 	...typescript.configs.recommended,
 	typescript.configs.eslintRecommended,
+	...typescript.configs.strict,
 	react.configs.flat?.recommended,
 	react.configs.flat?.['jsx-runtime'],
 	{
@@ -56,6 +57,7 @@ const config = {
 		'@typescript-eslint/prefer-for-of': enabled,
 		'@typescript-eslint/prefer-function-type': enabled,
 		'@typescript-eslint/unified-signatures': enabled,
+		'@typescript-eslint/no-shadow': 'off', // Handled by typescript
 
 		'react/jsx-curly-brace-presence': enabled,
 		'react/no-array-index-key': 'off',
@@ -64,9 +66,15 @@ const config = {
 
 		'importPlugin/extensions': 'off', // Handled by typescript
 		'importPlugin/no-nodejs-modules': 'off', // Makes too many assumptions
+		'importPlugin/no-namespace': 'off', // Makes too many assumptions
 		'importPlugin/no-unresolved': 'off', // Handled by typescript
+		'importPlugin/named': 'off', // Handled by typescript
 
 		'github/array-foreach': enabled,
+		'github/filenames-match-regex': 'off', // Makes too many assumptions
+		'github/no-then': 'off', // Makes too many assumptions
+		'i18n-text/no-en': 'off', // Makes too many assumptions
+
 		'arrow-body-style': [enabled, 'as-needed'],
 		'arrow-parens': [enabled, 'as-needed'],
 		'constructor-super': enabled,
@@ -97,7 +105,7 @@ const config = {
 		'no-restricted-imports': [enabled],
 		'no-return-await': enabled,
 		'no-sequences': enabled,
-		'no-shadow': [enabled, { hoist: 'all' }],
+		'no-shadow': 'off', // Handled by typescript
 		'no-sparse-arrays': enabled,
 		'no-template-curly-in-string': enabled,
 		'no-throw-literal': enabled,
