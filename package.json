@@ -53,5 +53,9 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "exports": {
+    ".": "./index.js",
+    "./rules": "./index.js"
   }
 }

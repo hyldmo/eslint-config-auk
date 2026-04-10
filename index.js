@@ -26,7 +26,7 @@ const baseConfigs = [
 ]
 
 /** @type {import('eslint').Linter.Config} */
-const config = {
+const rules = {
 	files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
 	languageOptions: {
 		ecmaVersion: 'latest',
@@ -41,10 +41,6 @@ const config = {
 		react: {
 			version: 'detect'
 		}
-	},
-	plugins: {
-		// @ts-expect-error react-hooks is out of date, see
-		'react-hooks': reactHooks
 	},
 	rules: {
 		'@typescript-eslint/array-type': [enabled, { default: 'array-simple' }],
@@ -123,4 +119,49 @@ const config = {
 	}
 }
 
-export default [...baseConfigs, config]
+/**
+ * Plugins unique to auk that aren't commonly provided by other shared configs.
+ * Use alongside `rules` when another config (e.g. eslint-config-next) already
+ * registers the common plugins (@typescript-eslint, react, import, jsx-a11y, etc).
+ *
+ * Registers: github, i18n-text, eslint-comments, no-only-tests, escompat
+ */
+const commonPlugins = new Set([
+	'@typescript-eslint',
+	'import',
+	'importPlugin',
+	'jsx-a11y',
+	'jsxA11yPlugin',
+	'react',
+	'react-hooks',
+	'prettierPlugin'
+])
+
+function extractUniquePlugins() {
+	const githubConfigs = [
+		github.getFlatConfigs().recommended,
+		github.getFlatConfigs().react,
+		...github.getFlatConfigs().typescript
+	]
+
+	const result = []
+	for (const config of githubConfigs) {
+		if (!config?.plugins) continue
+		const filtered = {}
+		for (const [name, plugin] of Object.entries(config.plugins)) {
+			if (!commonPlugins.has(name)) {
+				filtered[name] = plugin
+			}
+		}
+		if (Object.keys(filtered).length > 0) {
+			result.push({ plugins: filtered })
+		}
+	}
+	return result
+}
+
+export const plugins = extractUniquePlugins()
+
+export { rules }
+
+export default [...baseConfigs, rules]
