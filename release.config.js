@@ -4,7 +4,7 @@ export default {
 		[
 			'@semantic-release/commit-analyzer',
 			{
-				preset: 'angular',
+				preset: 'conventionalcommits',
 				parserOpts: {
 					headerPattern: /^(\w*|Update):? (.*)$/,
 					headerCorrespondence: ['type', 'message'],
@@ -19,7 +19,7 @@ export default {
 				]
 			}
 		],
-		'@semantic-release/release-notes-generator',
+		['@semantic-release/release-notes-generator', { preset: 'conventionalcommits' }],
 		'@semantic-release/github',
 		['@semantic-release/npm', { provenance: true }]
 	]
