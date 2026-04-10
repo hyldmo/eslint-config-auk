@@ -6,23 +6,36 @@ Opinionated ESLint config used by Auk's React projects
 
 Install eslint-config-auk:
 
-Using NPM:
-
 ```
 npm install --save-dev eslint-config-auk
 ```
 
-With Yarn:
+Then, add it to your `eslint.config.mjs`:
 
-```
-yarn add -D eslint-config-auk
+```js
+import auk from 'eslint-config-auk'
+
+export default [
+	...auk
+	// your overrides
+]
 ```
 
-Then, add eslint-config-auk to the "extends" array in your ESLint file (`.eslintrc` or `.eslintrc.js`). Make sure to put
-it last if you want to override other configs.
+### Using with other shared configs (e.g. Next.js)
 
-```json
-{
-	"extends": ["auk"]
-}
+If you already have a shared config that registers overlapping plugins (like `eslint-config-next`), import just the
+rules to avoid "Cannot redefine plugin" errors:
+
+```js
+import { rules as aukRules } from 'eslint-config-auk'
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals'
+
+export default [
+	...nextCoreWebVitals,
+	aukRules
+	// your overrides
+]
 ```
+
+The `rules` export contains all of auk's rule configuration and settings without any plugin registrations, so it
+composes cleanly with any config that already provides those plugins.
